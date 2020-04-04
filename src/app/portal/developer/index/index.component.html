@@ -1,0 +1,51 @@
+<!-- Page Loader -->
+<div class="body {{themeClass}} {{smallScreenMenu}} {{darkClass}}">
+
+
+	<app-page-loader *ngIf="!isStopLoading"></app-page-loader>
+
+	<div id="wrapper" *ngIf="isStopLoading">
+
+		<!-- Overlay For Sidebars -->
+
+		<app-header [showNotifMenu]="showNotifMenu" [showToggleMenu]="showToggleMenu" [darkClass]="darkClass"
+			(toggleSettingDropMenuEvent)="toggleSettingDropMenu()"
+			(toggleNotificationDropMenuEvent)="toggleNotificationDropMenu()"></app-header>
+
+		<app-sidebar [sidebarVisible]="sidebarService.sidebarVisible" [navTab]="navTab"
+			[currentActiveMenu]="currentActiveMenu" [currentActiveSubMenu]="currentActiveSubMenu"
+			(activeInactiveMenuEvent)="activeInactiveMenu($event)"></app-sidebar>
+		<div id="main-content" [ngClass]="{'layout-fullwidth':!sidebarService.sidebarVisible}">
+			<div class="container-fluid">
+
+				<div class="block-header">
+					<div class="row">
+						<div class="col-lg-5 col-md-8 col-sm-12">
+							<h2>
+								<a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+									<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+									<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+								</a>
+								Page Blank
+							</h2>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
+								<li class="breadcrumb-item">Pages</li>
+								<li class="breadcrumb-item active">Page Blank</li>
+							</ul>
+						</div>
+					 
+					</div>
+				</div>
+			
+				<div class="row clearfix">
+			
+					
+			
+				</div>
+			
+      <router-outlet (activate)="getActiveRoutes()"></router-outlet>
+	</div>
+		</div>
+	</div>
+</div>

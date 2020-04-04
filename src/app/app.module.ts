@@ -13,6 +13,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import {AuthModule} from './portal/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import * as $ from 'jquery';
+import { DeveloperModule } from './portal/developer/developer.module';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import * as $ from 'jquery';
         FullCalendarModule,
         NgMultiSelectDropDownModule.forRoot(),
         LeafletModule.forRoot(),
-        NgxGalleryModule
+        NgxGalleryModule,
+        DeveloperModule
     ],
     providers: [],
     bootstrap: [AppComponent]
