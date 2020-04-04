@@ -10,28 +10,70 @@
 						<p class="lead">Login to your account</p>
 					</div>
 					<div class="body">
-						<form class="form-auth-small" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+						<form class="form-auth-small"   *ngIf="!isLoggedIn"
+						name="form"
+						(ngSubmit)="f.form.valid && onSubmit()"
+						#f="ngForm"
+						novalidate>
 							<div class="form-group">
 								<label for="signin-email" class="control-label sr-only">Email</label>
-								<input type="email" class="form-control" id="signin-email" value="user@domain.com" placeholder="Email">
+								<input type="email" class="form-control" name="username"
+								[(ngModel)]="form.username" required #username="ngModel"  placeholder="Email" >
+							</div>
+							<div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
+							Username is required!
 							</div>
 							<div class="form-group">
 								<label for="signin-password" class="control-label sr-only">Password</label>
-								<input type="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">
+								<input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+		  #password="ngModel"
+		  placeholder="Password"
+		>
+		
 							</div>
+							<div
+							class="alert alert-danger"
+							role="alert"
+							*ngIf="f.submitted && password.invalid"
+						  >
+						  <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
 							<div class="form-group clearfix">
 								<label class="fancy-checkbox element-left">
 									<input type="checkbox">
 									<span>Remember me</span>
 								</label>
 							</div>
-							<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+							<button onclick="onSubmit()"class="btn btn-primary btn-lg btn-block">LOGIN</button>
+
+							<div class="form-group">
+								<div
+								  class="alert alert-danger"
+								  role="alert"
+								  *ngIf="f.submitted && isLoginFailed"
+								>
+								  Login failed: {{ errorMessage }}
+								</div>
+							  </div>
+
 							<div class="bottom">
 								<span class="helper-text m-b-10"><i class="fa fa-lock"></i>&nbsp;<a [routerLink]="['/authentication/page-forgot-password']">Forgot
 										password?</a></span>
 								<span>Don't have an account? <a [routerLink]="['/authentication/page-register']">Register</a></span>
 							</div>
 						</form>
+						 <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
+    </div>
 					</div>
 				</div>
 			</div>

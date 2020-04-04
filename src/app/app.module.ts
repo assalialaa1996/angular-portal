@@ -11,6 +11,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgxGalleryModule } from 'ngx-gallery';
 import {AuthModule} from './portal/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 import * as $ from 'jquery';
 
 @NgModule({
@@ -19,6 +20,7 @@ import * as $ from 'jquery';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         AuthModule,
         routing,
         NgbModule,
