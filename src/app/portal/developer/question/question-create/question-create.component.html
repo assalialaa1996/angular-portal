@@ -1,0 +1,83 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12">
+      <h2>
+        <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+          <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+          <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+        </a>
+        New Quesion
+      </h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
+        <li class="breadcrumb-item">Questions </li>
+        <li class="breadcrumb-item active">New</li>
+      </ul>
+    </div>
+   
+  </div>
+</div>
+<div class="row clearfix">
+  <div class="col-lg-12">
+    <div class="card">
+    
+      <div class="body">
+        <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.valid)">
+        <div class="form-group">
+          <label >Your Question Title:</label>
+          <input type="text" class="form-control" name="title" #title="ngModel" required placeholder="Enter Question title" [(ngModel)]='questionData.content.title' [ngClass]="{'parsley-error':!title.valid && (title.touched || profileForm.submitted)}" />
+          <ul class="parsley-errors-list filled" *ngIf="!title.valid && (title.touched || profileForm.submitted)">
+            <li class="parsley-required" *ngIf="title.hasError('required')">Title is required.</li>
+          </ul>
+        </div>
+     
+           
+        <hr>
+    
+
+        
+        
+         
+     
+    
+      <label >Your Question Content:</label>
+        <ejs-richtexteditor #toolsRTE id='alltoolRTE' [toolbarSettings]='config'  [insertImageSettings]='insertImageSettings' [(ngModel)]='questionData.content.body' name="body"></ejs-richtexteditor>
+        <ul class="parsley-errors-list filled" *ngIf="questionData.content.body=='' &&  profileForm.submitted">
+          <li class="parsley-required" >Please write your question content</li>
+        </ul>
+        <hr>
+        <mat-form-field class="example-chip-list">
+          <label >Add Question tags to help you accelerate response rate:</label>
+          <mat-chip-list #chipList aria-label="Question tags to help you accelerate response rate">
+            <mat-chip
+              *ngFor="let tag of tags"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="remove(tag)">
+              {{tag}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input 
+              placeholder="New tag..."
+              #tagInput
+              [formControl]="tagCtrl"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+              {{tag}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <hr>
+        <button type="submit"  class="btn btn-block btn-primary   m-t-20">Post</button>
+      </form>
+      </div>
+    
+    </div>
+  </div>
+</div>

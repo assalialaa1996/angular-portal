@@ -3,7 +3,7 @@
 		<div class="vertical-align-middle auth-main">
 			<div class="auth-box">
 				<div class="top">
-					<img src="assets/images/logo-white.svg" alt="Lucid">
+					<!-- <img src="assets/images/logo-white.svg" alt="Lucid"> -->
 				</div>
 				<div class="card">
 					<div class="header">
@@ -44,7 +44,8 @@
 								[(ngModel)]="form.email"
 								required
 								email
-								#email="ngModel">
+								#email="ngModel"
+								placeholder="Email">
 							</div>
 							<div class="alert-danger" *ngIf="f.submitted && email.invalid">
 								<div *ngIf="email.errors.required">Email is required</div>
@@ -60,7 +61,8 @@
 								[(ngModel)]="form.password"
 								required
 								minlength="6"
-								#password="ngModel">
+								#password="ngModel"
+								placeholder="Password">
 							</div>
 							<div class="alert-danger" *ngIf="f.submitted && password.invalid">
 								<div *ngIf="password.errors.required">Password is required</div>

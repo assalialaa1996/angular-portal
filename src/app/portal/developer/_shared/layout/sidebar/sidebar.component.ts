@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { ThemeService } from '../../../../services/theme.service';
+import { ThemeService } from '../../../../../services/theme.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

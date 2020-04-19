@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { ThemeService } from '../../../../services/theme.service';
+import { ThemeService } from '../../../../../services/theme.service';
 
 @Component({
 	selector: 'app-header',
