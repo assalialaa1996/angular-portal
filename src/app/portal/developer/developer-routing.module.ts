@@ -9,6 +9,8 @@ import { JobListComponent } from './job/job-list/job-list.component';
 import { JobSingleComponent } from './job/job-single/job-single.component';
 import { JobSavedComponent } from './job/job-saved/job-saved.component';
 import { ProfileComponent } from './profile/profile.component';
+import { JobCreateComponent } from './job/job-create/job-create.component';
+
 
 
 const routes: Routes = [ 
@@ -21,9 +23,10 @@ const routes: Routes = [
   {path: 'questions/all', component: QuestionListComponent},
   {path: 'questions/create', component:QuestionCreateComponent},
   {path: 'questions/respond', component:QuestionSingleComponent},
-  {path: 'Jobs/all', component:JobListComponent},
+  {path: 'jobs/all', component:JobListComponent},
   {path: 'jobs/apply', component:JobSingleComponent},
-  {path: 'jobs/saved', component:JobSavedComponent}
+  {path: 'jobs/saved', component:JobSavedComponent},
+  {path: 'jobs/new', component: JobCreateComponent}
 ]}
 ]
   ;

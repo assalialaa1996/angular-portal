@@ -1,3 +1,32 @@
-<p>
-  job-list works!
-</p>
+<div class="row clearfix">
+  <div class="col-lg-12">
+     
+      <div class="card">
+          <div class="body">
+              <ng-container>
+                  <div class="timeline-item" >
+                      <a [routerLink]="['/question/']"> <h5>Angular Web Developer</h5> </a>
+                      <span><a href="javascript:void(0);">DromalCorp</a> </span>
+                      <div class="msg">
+                        <div>
+                          <p>This is a small description for the needed job write something here ...</p>
+                        </div>
+                          <a href="javascript:void(0);" class="m-r-20"><i class="icon-heart"></i> Save</a>
+                     
+                       
+                  
+                      </div>
+                  </div>
+              </ng-container>
+              <hr>
+         
+        <ul class="body pagination pagination-primary">
+          <li class="page-item"><button class="page-link" href="javascript:void(0);">Previous</button></li>
+          <li class="page-item active" *ngFor="let a of fakeArray; let page = index;" > <button class="page-link" (click)="show(page+1)">{{page+1}}</button>   </li>
+      
+          <li class="page-item"><button class="page-link" href="javascript:void(0);">Next</button></li>
+        </ul>
+          </div>
+      </div>
+  </div>
+</div>

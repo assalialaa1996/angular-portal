@@ -1,0 +1,70 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12">
+      <h2>
+        <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+          <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+          <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+        </a>
+        New Project
+      </h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
+        <li class="breadcrumb-item">Project </li>
+        <li class="breadcrumb-item active">New</li>
+      </ul>
+    </div>
+   
+  </div>
+</div>
+<div class="row clearfix">
+  <div class="col-lg-12">
+    <div class="card">
+    
+      <div class="body">
+        <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.valid)">
+        <div class="form-group">
+          <label >Your Project Title:</label>
+          <input type="text" class="form-control" name="title" #title="ngModel" required placeholder="Enter Job title" [(ngModel)]='questionData.content.title' [ngClass]="{'parsley-error':!title.valid && (title.touched || profileForm.submitted)}" />
+          <ul class="parsley-errors-list filled" *ngIf="!title.valid && (title.touched || profileForm.submitted)">
+            <li class="parsley-required" *ngIf="title.hasError('required')">Title is required.</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="form-group">
+          <label >Your Project Description:</label>
+          <input type="text" class="form-control" name="description" #description="ngModel" required placeholder="Enter Job description" [(ngModel)]='questionData.content.description' [ngClass]="{'parsley-error':!title.valid && (title.touched || profileForm.submitted)}" />
+          <ul class="parsley-errors-list filled" *ngIf="!description.valid && (description.touched || profileForm.submitted)">
+            <li class="parsley-required" *ngIf="description.hasError('required')">Description is required.</li>
+          </ul>
+        </div>
+     
+           
+        <hr>
+    
+
+        
+        
+         
+     
+    
+      <label >Project Requirements:</label>
+        <ejs-richtexteditor #toolsRTE id='alltoolRTE' [toolbarSettings]='config'  [insertImageSettings]='insertImageSettings' [(ngModel)]='questionData.requirements' name="req"></ejs-richtexteditor>
+        <ul class="parsley-errors-list filled" *ngIf="questionData.requirements=='' &&  profileForm.submitted">
+          <li class="parsley-required" >Please write your Project Requirements</li>
+        </ul>
+        <hr>
+        <label >Project Responsabilities:</label>
+        <ejs-richtexteditor #toolsRTE id='alltoolRTE' [toolbarSettings]='config'  [insertImageSettings]='insertImageSettings' [(ngModel)]='questionData.responsabilities' name="res"></ejs-richtexteditor>
+        <ul class="parsley-errors-list filled" *ngIf="questionData.responsabilities=='' &&  profileForm.submitted">
+          <li class="parsley-required" >Please write your Project Responsabilities</li>
+        </ul>
+       
+        <hr>
+        <button type="submit"  class="btn btn-block btn-primary   m-t-20">Post</button>
+      </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
