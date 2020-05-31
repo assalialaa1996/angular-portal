@@ -42,9 +42,9 @@
                         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{'active':currentActiveMenu == 'app'}">
                             <a class="has-arrow" (click)="activeInactiveMenu('app')"><i class="icon-grid"></i> <span>Questions</span></a>
                             <ul *ngIf="currentActiveMenu == 'app'">
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/app/app-inbox']">New Question</a></li>
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/app/app-chat']">My Questions</a></li>
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/app/app-calendar']">Search Question</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/questions/create']">New Question</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/questions/history']">My Questions</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/questions/all']">Search Question</a></li>
 
                             </ul>
                         </li>
@@ -52,18 +52,18 @@
                             <a class="has-arrow" (click)="activeInactiveMenu('file-manager')"><i class="icon-folder"></i>
                                 <span>Project</span></a>
                             <ul *ngIf="currentActiveMenu == 'file-manager'">
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/file-manager/file-documents']">New Project</a></li>
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/file-manager/file-media']">My projects</a></li>
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/file-manager/file-images']">Search project</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/jobs/new']">New Project</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/jobs/history']">My projects</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/jobs/all']">Search project</a></li>
                             </ul>
                         </li>
                         <li [ngClass]="{'active':currentActiveMenu == 'blogs'}">
                             <a class="has-arrow" (click)="activeInactiveMenu('blogs')"><i class="icon-globe"></i>
                                 <span>Blog</span></a>
                             <ul *ngIf="currentActiveMenu == 'blogs'">
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/blogs/blog-post']">New Article</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/blog/new']">New Article</a></li>
                                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/blogs/blog-list']">My articles</a></li>
-                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/admin/blogs/blog-details']">Search article</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/developer/blog/all']">Search article</a></li>
                             </ul>
                         </li>
 

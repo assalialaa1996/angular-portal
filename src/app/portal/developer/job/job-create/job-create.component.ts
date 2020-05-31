@@ -2,12 +2,6 @@ import { Component, OnInit, ChangeDetectorRef, Input, ElementRef, ViewChild } fr
 import { SidebarService } from '../../../../services/sidebar.service';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextEditorComponent  } from '@syncfusion/ej2-angular-richtexteditor';
 import { JobService } from '../../_shared/job.service'; 
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-job-create',
@@ -17,7 +11,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class JobCreateComponent implements OnInit {
 
-  
+   
   durationInSeconds = 5;
   @Input() questionData = { user: JSON.parse(localStorage.getItem('auth-user'))._id, content: {title:'',description:''}, requirements:'',responsabilities:'',name: JSON.parse(localStorage.getItem('auth-user')).user.name };
   
@@ -44,7 +38,7 @@ export class JobCreateComponent implements OnInit {
    
 	}
 
-  toggleFullWidth() {
+  toggleFullWidth() { 
 		this.sidebarService.toggle();
 		this.sidebarVisible = this.sidebarService.getStatus();
 		this.cdr.detectChanges();

@@ -39,7 +39,7 @@
             <div class="body">
                 <ng-container *ngFor="let q of questions.questions">
                     <div class="timeline-item"  [attr.date-is]="q.date| date:'medium'">
-                        <a [routerLink]="['/question/',q._id]"> <h5>{{ q.content.title }}</h5> </a>
+                        <a [routerLink]="['/developer/questions/respond/',q._id]"> <h5>{{ q.content.title }}</h5> </a>
                         <span><a href="javascript:void(0);">{{q.name}}</a> </span>
                         <div class="msg">
                           <div [innerHTML]="q.content.body"></div>
@@ -62,13 +62,13 @@
                         </div>
                     </div>
                 </ng-container>
-                <hr>
+                <hr> 
            
 					<ul class="body pagination pagination-primary">
-						<li class="page-item"><button class="page-link" href="javascript:void(0);">Previous</button></li>
+						<li class="page-item"><button class="page-link" href="javascript:void(0);" (click)="previous()" >Previous</button></li>
 						<li class="page-item active" *ngFor="let a of fakeArray; let page = index;" > <button class="page-link" (click)="show(page+1)">{{page+1}}</button>   </li>
 				
-						<li class="page-item"><button class="page-link" href="javascript:void(0);">Next</button></li>
+						<li class="page-item"><button class="page-link" href="javascript:void(0);" (click)="next()">Next</button></li>
 					</ul>
             </div>
         </div>

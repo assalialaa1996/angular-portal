@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SidebarService } from '../../../../services/sidebar.service';
+import { ActivatedRoute } from '@angular/router';
+import { QuestionService } from '../../_shared/question.service';
 
 @Component({
   selector: 'app-question-single',
@@ -19,8 +21,9 @@ export class QuestionSingleComponent implements OnInit {
 			'Image', '|', 'ClearFormat', 'Print', 'SourceCode', '|']
 	};
 	public htmlContent: string = "";
+	question: {};
 
-  constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
+  constructor(public q_service:QuestionService,private route: ActivatedRoute,private sidebarService: SidebarService, private cdr: ChangeDetectorRef) {
 		
 		this.htmlContent = "<h3 class='m-b-0'>hi,</h3><h4 class='m-t-0'>we are Wrraptheme.</h4><p></p>";
 	}
@@ -30,8 +33,20 @@ export class QuestionSingleComponent implements OnInit {
 		this.sidebarVisible = this.sidebarService.getStatus();
 		this.cdr.detectChanges();
   }
+  getquestion(id){
+    
+	this.q_service.getQuestion(id).subscribe((data: {}) => {
+	  console.log(data);
+	  this.question = data;
+	  
+	
+	   
+	});
+}
   
   ngOnInit() {
+	const id = this.route.snapshot.paramMap.get('id');
+	this.getquestion(id);
   }
 
 }

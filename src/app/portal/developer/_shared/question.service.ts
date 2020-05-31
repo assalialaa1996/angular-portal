@@ -25,14 +25,14 @@ export class QuestionService {
     return body || { };
   }
 
-  getQuestions(): Observable<any> {
-    return this.http.get(endpoint).pipe(
+  getQuestions(x): Observable<any> {
+    return this.http.get(endpoint+'?page='+x).pipe(
       map(this.extractData));
   }
 
 //WorkingOnIt
   getQuestion(id): Observable<any> {
-    return this.http.get(endpoint + 'products/' + id).pipe(
+    return this.http.get(endpoint + 'one/' + id).pipe(
       map(this.extractData));
   }
 

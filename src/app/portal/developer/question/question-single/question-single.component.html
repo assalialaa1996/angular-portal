@@ -1,18 +1,32 @@
+<div class="block-header">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12">
+      <h2>
+        <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+          <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+          <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+        </a>
+        View Question 
+      </h2>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
+        <li class="breadcrumb-item">Question </li>
+        <li class="breadcrumb-item active">View</li>
+      </ul>
+    </div>
+   
+  </div>
+</div>
 <div class="row clearfix">
   <div class="col-lg-9 col-md-12 left-box">
-    <div class="card single_post">
+    <div class="card single_post" *ngFor="let q of question">
       <div class="body">
         
-        <h3><a [routerLink]="['/admin/blogs/blog-details']">All photographs are accurate</a></h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-          leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-          with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <div class="img-post">
-            <img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
-          </div>
+        <h3>
+          {{q.content.title}}
+        </h3>
+        <div [innerHTML]="q.content.body"></div>
+    
       </div>
     </div>
     <div class="card">

@@ -23,8 +23,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobCreateComponent } from './job/job-create/job-create.component';
+import { ArticleCreateComponent } from './blog/article-create/article-create.component';
+import { ArticleListComponent } from './blog/article-list/article-list.component';
+import { ArticleViewComponent } from './blog/article-view/article-view.component';
 @NgModule({
-  declarations: [QuestionListComponent, QuestionSingleComponent, QuestionCreateComponent, IndexComponent, DashboardComponent, ProfileComponent, JobListComponent, JobSingleComponent, JobSavedComponent, JobCreateComponent],
+  declarations: [QuestionListComponent, QuestionSingleComponent, QuestionCreateComponent, IndexComponent, DashboardComponent, ProfileComponent, JobListComponent, JobSingleComponent, JobSavedComponent, JobCreateComponent, ArticleCreateComponent, ArticleListComponent, ArticleViewComponent],
   imports: [
     CommonModule,
     DeveloperRoutingModule,

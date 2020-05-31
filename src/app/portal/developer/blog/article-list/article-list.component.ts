@@ -1,15 +1,15 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { QuestionService } from '../../_shared/question.service';
+import { ArticleService } from '../../_shared/article.service';
 import { SidebarService } from '../../../../services/sidebar.service';
 import { count } from 'rxjs/operators';
 @Component({
-  selector: 'app-question-list',
-  templateUrl: './question-list.component.html',
-  styleUrls: ['./question-list.component.css']
+  selector: 'app-article-list',
+  templateUrl: './article-list.component.html',
+  styleUrls: ['./article-list.component.css']
 })
-export class QuestionListComponent implements OnInit {
+export class ArticleListComponent implements OnInit {
 
-	counter=1;
+  counter=1;
 	public sidebarVisible: boolean = true;
 	questions:any = [];
 
@@ -20,7 +20,7 @@ export class QuestionListComponent implements OnInit {
 	public showComment: boolean = false;
 	fakeArray= new Array(1);
 
-	constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef,public q_service:QuestionService) {
+	constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef,public q_service:ArticleService) {
 
 		this.posts = [
 			{
@@ -52,7 +52,7 @@ export class QuestionListComponent implements OnInit {
 	}
 	getQuestions(x) {
 		this.questions = [];
-		this.q_service.getQuestions(x).subscribe((data: {}) => {
+		this.q_service.getArticles(x).subscribe((data: {}) => {
 		  console.log(data);
 		  this.questions = data;
 		  this.fakeArray= new Array(this.questions.totalPages)
@@ -95,6 +95,5 @@ export class QuestionListComponent implements OnInit {
 		this.showComment = !this.showComment;
 	}
 
-	
-
+ 
 }

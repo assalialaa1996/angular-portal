@@ -20,18 +20,17 @@
 </div>
 <div class="row clearfix">
   <div class="col-lg-12">
-    <div class="card" *ngFor="let j of job">
+    <div class="card" *ngFor="let j of article">
       <h4>
         {{j.content.title}}
       </h4>
       <hr>
       <p>
        {{j.content.description}}
-      </p>
-      <h5>Responsabilities</h5>
-      <div [innerHTML]="j.responsabilities"></div>
-      <h5>Requierements</h5>
-      <div [innerHTML]="j.requirements"></div>
+      </p> 
+      <h5> ... </h5>
+      <div [innerHTML]="j.content.body"></div>
+    
 
      
 
